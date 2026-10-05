@@ -9,8 +9,21 @@
         name: nginx
         state: present
 
+    - name: Deploy the booking page
+      ansible.builtin.copy:
+        src: files/index.html
+        dest: /usr/share/nginx/html/index.html
+        mode: "0644"
+      notify: Restart nginx
+
     - name: Ensure nginx runs now and at boot
       ansible.builtin.systemd:
         name: nginx
         state: started
         enabled: true
+
+  handlers:
+    - name: Restart nginx
+      ansible.builtin.systemd:
+        name: nginx
+        state: restarted
