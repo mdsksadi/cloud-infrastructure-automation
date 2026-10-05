@@ -32,7 +32,7 @@ variable "my_ip" {
 resource "aws_vpc" "surf" {
   cidr_block           = "10.1.0.0/16"
   enable_dns_hostnames = true
-  tags                 = { Name = "surf-vpc-<yourname>" }
+  tags                 = { Name = "surf-vpc-sadi" }
 }
 
 resource "aws_subnet" "public" {
@@ -40,5 +40,5 @@ resource "aws_subnet" "public" {
   cidr_block              = "10.1.1.0/24"
   availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-  tags                    = { Name = "surf-public-a-<yourname>" }
+  tags                    = { Name = "surf-public-a-sadi" }
 }
