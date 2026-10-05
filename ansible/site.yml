@@ -1,0 +1,16 @@
+---
+- name: Configure the surf camp web server
+  hosts: surf
+  become: true
+
+  tasks:
+    - name: Install nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+
+    - name: Ensure nginx runs now and at boot
+      ansible.builtin.systemd:
+        name: nginx
+        state: started
+        enabled: true
