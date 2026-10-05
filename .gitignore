@@ -15,6 +15,15 @@ crash.*.log
 # to change depending on the environment.
 *.tfvars
 *.tfvars.json
+terraform.tfvars
+*.auto.tfvars
+
+# SSH keys
+*.pem
+*.ppk
+*.key
+surf-key
+surf-key.pub
 
 # Ignore override files as they are usually used to override resources locally and so
 # are not checked in
@@ -25,6 +34,7 @@ override.tf.json
 
 # Ignore transient lock info files created by terraform apply
 .terraform.tfstate.lock.info
+.terraform.lock.hcl
 
 # Include override files you do wish to add to version control using negated pattern
 # !example_override.tf
@@ -42,3 +52,10 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 # planout
+
+# Ansible
+*.retry
+
+# OS/editor
+.vscode/
+.DS_Store
